@@ -1,0 +1,38 @@
+---
+layout:	post
+title:	"The Consumer and The Dreamer"
+categories: test
+---
+I oscillate between two major schools of thought on how best to learn. The first school of thought can be called the Consumer. The Consumer approaches a topic very simply: by consuming and organizing all materials related to that topic. For example, say the Consumer would like to learn more about the parity of zero. Is zero even, odd, or neither?  
+
+The Consumer may start like most people, and Google "the parity of zero." They would come across the first result, a [Wikipedia article](https://en.wikipedia.org/wiki/Parity_of_zero) entitled "Parity of zero." The information they need is the first sentence of the article:  
+
+> Zero is an even number.  
+
+But the Consumer does not stop there. They must read, or at least skim, the entire article. In addition, there are two important questions to ask:  
+
+1. *Why* is zero even?
+2. *Why* did I think zero was *not* even?
+
+In other words, what is the deepest level of understanding I can get, and what caused my blind spot in the first place?  
+
+In many cases, like this current example, there are many answers to the first question. Zero is even because:  
+
+1. Parity alternates. $-1$ and $1$ are both odd, and zero sits right in the middle. Therefore, zero is even.
+2. Zero is divisible by two (although to most people, this is not obvious).
+3. A number $$n$$ is odd if there is an **integer** $$k$$ such that $$n = 2k + 1$$. If we say $$n = 0$$, then $$0 = 2k + 1$$ and $$k = -\frac{1}{2}$$. $$k$$ must be an **integer**; so we have a contradiction. Zero cannot be odd. (This might prompt further questions: if zero is *not odd*, then must it be even? Can a number be neither odd nor even?)
+
+There are many more reasons why zero is even, depending on how you think about it. I think the best explanation is the first: all numbers, *every single one*, follows this pattern. This explanation also brings forth -- naturally -- the answer to our second question. Why did I think zero was *not* even? Because I thought zero was special. There was a simple, obvious pattern the entire time, and I missed it completely! I fell victim to the common misconception that "zero is special," just like the third graders in a [2008 paper by Ball, Lewis and Thames](http://www.jstor.org/stable/30037740) (Making Mathematics Work in School).  
+
+As a Consumer, I read the whole Wikipedia article, including the "Education" section, which led me to a figure from that paper (cited in the wiki) with claims made by the students.  
+
+I also saw an interesting statistic in the same section, which stated that in a survey of nearly 400 seven-year-olds, 45% thought that zero was even. What's more, in a second survey, when a third choice was added (i.e. *even*, *odd*, *don't know*), that number dropped to 32%. So, the majority of children (in other words, future adults) share this misconception.  
+
+The consumer does not read the article in a linear fashion. The Consumer functions much like a stack.  
+
+# The Stack
+
+The stack is an abstract data type, a very familiar concept to many with a computer science or engineering background. The idea has an almost perfect physical analogue: a stack (of things). Any physical stack of things will do; coins, laundry, books. The point is, you must deal with the thing on top before everything under it (ideally). If you have a stack of letters, you read and reply to them one by one, from top to bottom.  
+
+I am not a fan of analogies, especially physical, to describe data types (or anything else). In this case it works fairly well, but quickly falls short; for example, in reality you can always read your letters or books out of order. Any analogy fails to convey the benefit that comes from what appears to be a restriction. The stack is perfect for situations in which a problem is broken down into an arbitrary number of other problems, which must be completed in a strict order. In other words, the solution depends on the result of each sub-problem (which, in turn, may have other sub-problems).  
+
