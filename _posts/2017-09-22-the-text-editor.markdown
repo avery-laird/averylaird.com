@@ -4,7 +4,7 @@ title: "A Text Editor"
 categories: programming
 ---
 
-Lately I've been playing around with the idea of creating a text editor. Here's a very quick and basic overview of what I think it should contain. The text editor has extensions, managers, projects, and a core API.  
+Lately I've been playing around with the idea of creating a text editor. Here's a very quick and basic overview of what I think it should contain. wqThe text editor has extensions, managers, projects, and a core API.  
 
 ## The Editor has Extensions
 
