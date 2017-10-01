@@ -53,6 +53,7 @@ The Dreamer spends their time thinking. For example, they may look at the shape 
 
 Much like how the Consumer seeks out all information related to a topic, the Dreamer ponders many questions at once in their mind. Unlike the Consumer, the Dreamer does not answer these questions immediately, nor do they traverse them in a systematic order. These questions merge and mix together in the mind of the Dreamer, as is the default function of the mind. The Dreamer decides they would like to answer these questions. So, they may start out by trying to describe a hanging string mathematically. The string may be approximated by imagining a series of connected points. If the forces on a single point are modelled correctly, then as the number of points increase to an arbitrarily large amount, they will approximate the hanging string. 
 
+
 <!--
 The consumer does not read the article in a linear fashion. The Consumer functions much like a stack.  
 
