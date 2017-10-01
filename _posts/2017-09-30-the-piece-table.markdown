@@ -71,7 +71,7 @@ We need two buffers: the original file (read-only), and a new file that will con
 	
 	Sequence: A_span_of_English_text
 	
-Keep in mind that the `Start` index is *not relative* to previous edits. This is something that gets handled at runtime by adding the length of each previous edit (like what I did to fix my footnote script). Since the length is already included in the table, this is a trivial step.__
+Keep in mind that the `Start` index is *not relative* to previous edits. This is something that gets handled at runtime by adding the length of each previous edit (like what I did to fix my footnote script). Since the length is already included in the table, this is a trivial step.  
 
 I like this solution the most because:
 
