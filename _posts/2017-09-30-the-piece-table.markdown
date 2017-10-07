@@ -1,7 +1,9 @@
 ---
 title: "Text Editor: Data Structures"
 layout: post
-categories: programming editor
+categories: 
+ - programming 
+ - the text editor
 ---
 
 The first step in building my text editor is to implement the core API. If you're wondering why I want to do this, the original article is [here](/programming/2017/09/22/the-text-editor/).  
@@ -81,9 +83,10 @@ I like this solution the most because:
 
 The piece table method certainly has its complications, and there are different variations in implementation. It is certainly a daunting task. I'm going to see how far I get. Another article will accompany my attempts to implement the piece table method.
 
----
-
 ### Notes
 
+
 [^1]: From [Wikipedia](https://en.wikipedia.org/wiki/Rope_(data_structure))
-[^2]: They should! Why aren't they!?!?! Somebody needs to make that a markdown extension. Every time you want to insert an indexed footnote, you type `[^#]`. Then, it takes every footnote definition with that format and matches them up. If there's a mismatch (like a named reference), you wonder why some of your footnotes are missing and fix it. I had to change all of my footnotes just to insert this footnote. It's crazy. 
+[^2]: They should! Why aren't they!?!?! Somebody needs to make that a markdown extension. Every time you want to insert an indexed footnote, you type `[^#]`. Then, it takes every footnote definition with that format and matches them up. If there's a mismatch (like a named reference), you wonder why some of your footnotes are missing and fix it. I had to change all of my footnotes just to insert this footnote. It's crazy.  
+
+

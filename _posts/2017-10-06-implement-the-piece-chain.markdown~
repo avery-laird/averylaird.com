@@ -1,0 +1,5 @@
+I wrote a [brief article](/programming/editor/2017/09/30/the-piece-table/) outlining my preliminary foray into the world of text editing data structures. I got a lot of awesome feedback, which I was totally unprepared for, but very encouraged by. Thanks to everyone who took the time to take a look. Whether you loved it, hated it, or somewhere in-between, I appreciate it!  
+
+This article is going to focus mainly on how I plan to implement the piece table. More specifically, a look at some of the ways I *could* implement it, and a discussion about the merits of each method.  
+
+Before we get started, there is something I should clear up. I want these articles to loosely flow from one to the other, and in the previous article, many people brought up a specific point. The first data structure I bring up -- and dismiss pretty quickly -- is a simple array. A few people pointed out that, while a plain old array isn't very efficient, there are some simple ways to improve its efficiency. And that's totally true. But from my point of view, that's not an array anymore: it's another type of data structure. I was talking only about 
