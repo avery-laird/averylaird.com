@@ -40,6 +40,61 @@ Let's refer back to [Charles Crowley's paper](https://www.cs.unm.edu/~crowley/pa
 * `Delete`
 * `ItemAt`  
 
-He goes fairly more in-depth than that. But this gives us a rough idea of the things to consider.  
+He goes fairly more in-depth than that. But this gives us a rough idea of the problem's "shape."  
+
+The type we need to focus on the most is `Sequence`. In the piece table method, a series of pieces will make up a sequence. We start with only one sequence, and generate more pieces as changes are made to the document. In practice, however, the [Manager](/programming/2017/09/22/the-text-editor/#the-editor-has-managers) would notify the [API](/programming/2017/09/22/the-text-editor/#the-editor-has-an-api) of the starting window size, and the API would start with a sequence around that size. This introduces some complications, namely pieces which span sequences. Also, it could be difficult to ascertain where sequences meet. Let's disregard those issues for now.  
+
+In C, we might have something like this:  
+
+``` c
+typedef struct Piece {
+    Piece * next;
+    Piece * previous;
+    
+    // we might want to add a "logical offset" field later
+    
+    int length;
+    int buffer;
+} Piece;
+
+typedef struct Sequence {
+    Piece * first;
+    Piece * last;
+} Sequence;
+
+```
+
+In python and C++, it would be a bit different. Namely, sequences and pieces would both probably be classes. Moreover, the buffer might also be its own object, namely a [`memoryview`](https://docs.python.org/3/library/stdtypes.html#typememoryview) object (at least in python):  
+
+``` python
+class Sequence:
+    def __init__(self, first, last):
+        self.first = first;
+        self.last = last;
+	
+    def insert(self, index, Buffer, length):
+	    ...
+		
+	# other methods omitted
+	
+class Piece:
+    def __init__(self, length, Buffer, back, front):
+        self.length = length
+        self.Buffer = Buffer
+        self.back = back
+        self.front = front
+		
+# memoryview omitted here
+
+```
+
+
+
+This assumes that we implement the piece table using a doubly linked list, and the details of doing so are explained very well in [this article](http://www.catch22.net/tuts/piece-chains). However, this is just one way of doing things. In the next section, I'll explore using a red/black binary tree instead.  
+
+
+
+	
+
 
 
