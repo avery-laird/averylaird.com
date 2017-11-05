@@ -92,8 +92,29 @@ class Piece:
 
 This assumes that we implement the piece table using a doubly linked list, and the details of doing so are explained very well in [this article](http://www.catch22.net/tuts/piece-chains). However, this is just one way of doing things. In the next section, I'll explore using a red/black binary tree instead.  
 
+# The Testbed
+
+In order to actually test the API, I need a Manager first. I didn't want to create one from scratch, before creating the API, so I decided to use [kilo](https://github.com/antirez/kilo) as a platform to preform testing. Kilo works well for my purposes, because it's small and simple. The editing functions are also separated and mostly independent, so replacing them should be relatively straightforward.  
+
+There are a couple functions I'll need to replace:  
+
+``` c
+int editorOpen(char *filename);
+void editorUpdateRow(erow *row);
+void editorInsertRow(int at, char *s, size_t len);
+void editorFreeRow(erow *row);
+void editorDelRow(int at);
+char *editorRowsToString(int *buflen);
+void editorRowInsertChar(erow *row, int at, int c);
+void editorRowAppendString(erow *row, char *s, size_t len);
+void editorRowDelChar(erow *row, int at);
+void editorInsertChar(int c);
+void editorInsertNewline(void);
+void editorDelChar();
+```
 
 
+This seems like a lot, but actually most of them are not particularly large. Kilo stores text in "rows," where every line is a row. Our piece table uses sequences, where pieces make up a sequence. The first function `editorOpen` reads a file, and converts lines to rows. Note that the whole file is read. We want to only read the viewport and a bit more. Also, we start with one sequence: a pointer to the start of the file
 	
 
 
