@@ -6,7 +6,7 @@ published: true
 
 A few months ago, I stopped using Django + Mezzanine to manage my site. Now, I use Jekyll instead, and it's a terrific experience. Everything's simple, fast, and easy. I love it. That being said, I'm not happy with one thing in particular. Managing posts is a pain, and it becomes more difficult as the number of posts increase. And I think I know why: the posts are sorted by date. For humans -- or for me, anyway -- it's easier to remember posts by name. When we are trying to find a post, we hardly ever think "that post I wrote on November 22nd, 2017." We think, "that post called "How To Solve It.""
 
-Also, I don't want to construct those filenames. It's one of those tasks that's so simple to automate, it's annoying that we should do it by hand. So, I spend an hour writing a **very** simple, quick-and-dirty tool to manage my posts for me. There are two parts: a database file, and the posts in `_posts`. The database file serves only as a bijective (one-to-one) mapping between human friendly names, and Jekyll compliant names. A sample entry would look like this:
+We can use the default commands found in the Rakefile, eg `rake post['Hey! New Post!']`. However, I find that syntax a bit strange. Plus, it's very simple; it can't do much other than open a new post. So, I spent an hour writing a **very** simple, quick-and-dirty tool to manage my posts for me. There are two parts: a database file, and the posts in `_posts`. The database file serves only as a bijective (one-to-one) mapping between human friendly names, and Jekyll compliant names. A sample entry would look like this:
 
     # .projekts
 
