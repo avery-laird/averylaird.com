@@ -6,7 +6,7 @@ published: true
 
 A few months ago, I stopped using Django + Mezzanine to manage my site. Now, I use Jekyll instead, and it's a terrific experience. Everything's simple, fast, and easy. I love it. That being said, I'm not happy with one thing in particular. Managing posts is a pain, and it becomes more difficult as the number of posts increase. And I think I know why: the posts are sorted by date. For humans -- or for me, anyway -- it's easier to remember posts by name. When we are trying to find a post, we hardly ever think "that post I wrote on November 22nd, 2017." We think, "that post called "How To Solve It.""
 
-We can use the default commands found in the Rakefile, eg `rake post['Hey! New Post!']`. However, I find that syntax a bit strange. Plus, it's very simple; it can't do much other than open a new post. So, I spent an hour writing a **very** simple, quick-and-dirty tool to manage my posts for me. There are two parts: a database file, and the posts in `_posts`. The database file serves only as a bijective (one-to-one) mapping between human friendly names, and Jekyll compliant names. A sample entry would look like this:
+We can use the default commands found in the Rakefile, eg `rake post['Hey! New Post!']`. However, I find that syntax a bit strange. Plus, it's very simple; it can't do much other than open a new post. So, I spent an hour writing *another* **very** simple, quick-and-dirty tool to manage my posts for me. There are two parts: a database file, and the posts in `_posts`. The database file serves only as a bijective (one-to-one) mapping between human friendly names, and Jekyll compliant names. A sample entry would look like this:
 
     # .projekts
 
@@ -15,7 +15,7 @@ We can use the default commands found in the Rakefile, eg `rake post['Hey! New P
 	
 This file is supposed to be human friendly as well, so the user can make manual changes it necessary. For every post the pattern is simply: human name, machine name, new line.
 
-Right now, the tool doesn't do much. There's only one command, `post`. When `post` is called, it will treat everything after it as the title of a new post. If the post is already in the database, it will open that post in emacs. If the post doesn't exist, it will create the new file with some default front matter, add the file to the database, and open the new file in emacs. 
+Right now, the tool doesn't do much. It basically does exactly what the rake task does. There's only one command, `post`. When `post` is called, it will treat everything after it as the title of a new post. If the post is already in the database, it will open that post in emacs. If the post doesn't exist, it will create the new file with some default front matter, add the file to the database, and open the new file in emacs. 
 
 Many parameters are hard-coded. For example, Jekyll supports other formats than markdown. Additionally, I'm not sure how characters like ":", "?", "&" etc are treated by Jekyll when present in file names. The docs aren't clear, and I haven't tested it. Also, the user should have the ability to specify the front matter they want, which database file to use, where the `_posts` are located, etc. And of course, the editor should be easy to change. All this information could be passed as arguments, or defined in a configuration file. 
 
