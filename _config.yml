@@ -1,4 +1,8 @@
 # Site settings
+
+# custom
+highlighter: pygments
+
 title:       averylaird.com
 email:       laird.avery@gmail.com
 author:      Avery Laird
