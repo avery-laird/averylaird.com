@@ -6,7 +6,7 @@ categories:
   - piece chain
   - the text editor
   - red black tree
-published: true
+published: false
 ---
 
 It's been some time since I wrote my article regarding [data structures used in text editors.]({{ site.baseurl }}{% post_url 2017-09-30-the-piece-table %}) Since then, I have been thinking in more specific terms about how the core API could actually be implemented.  
