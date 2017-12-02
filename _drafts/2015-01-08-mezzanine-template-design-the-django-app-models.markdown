@@ -109,7 +109,7 @@ Let's start by making some changes to `base.html`.
 
 ### Prepping base.html    
    
-1.    Right now, `base.html` is the default mezzanine template, but we want our own fancy one, so let's get rid of what we don't want by deleting everything inside the `<body>` tag until the `{% raw %}{% include "includes/footer_scripts.html" %}{% endraw %}` tag. 
+1.    Right now, `base.html` is the default mezzanine template, but we want our own fancy one, so let's get rid of what we don't want by deleting everything inside the `<body>` tag until the `{% include "includes/footer_scripts.html" %}` tag. 
 2.    Transfer everything inside the header of the blog's `index.html` to the header of `base.html` -- all of the javascript and css. 
 4.    Move everything inside the `<body>` tags of the clean blog's `index.html` to the `<body>` tags of `base.html`
 
@@ -137,11 +137,11 @@ You're almost done this step: the last thing you have to do is update the locati
         :::html+django
         <!-- base.html -->
   
-        {% raw %}<link href="{% static "css/clean-blog.min.css" %}" rel="stylesheet">{% endraw %}
+        <link href="{% static "css/clean-blog.min.css" %}" rel="stylesheet">
 
 > The body of `index.html` also includes some images and other links: **don't forget to update those references too!** That would look like this:
 >    :::html+django
->    {% raw %}<header class="intro-header" style="background-image: url("{% static "img/home-bg.jpg" %}")">{% endraw %}
+>    <header class="intro-header" style="background-image: url("{% static "img/home-bg.jpg" %}")">
 > 
 
 Neat! Quick side-note: If you're using a halfway decent editor like vim or emacs and/or some sort of IDE, I would recommend using a search and replace tool to update your references.  
@@ -188,7 +188,7 @@ If you take a look at the `index.html` you'll notice the navbar is layed out lik
         <!-- /.container -->
     </nav>
 
-The navbar is something we want on every page of our site (usually), as well has the header and footer -- that means we should probably put them in our `base.html`. You can go ahead delete everything in the `base.html` right now, from the `body` tag to `{% raw %}{% include "includes/footer_scripts.html" %}{% endraw %}`. 
+The navbar is something we want on every page of our site (usually), as well has the header and footer -- that means we should probably put them in our `base.html`. You can go ahead delete everything in the `base.html` right now, from the `body` tag to `{% include "includes/footer_scripts.html" %}`. 
 
   [1]: https://docs.djangoproject.com/en/1.7/intro/reusable-apps/
   [2]: http://startbootstrap.com/template-overviews/clean-blog/
