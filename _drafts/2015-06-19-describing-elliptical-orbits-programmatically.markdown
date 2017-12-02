@@ -8,22 +8,29 @@ Like most space nerds, I play [Kerbal Space Program][1]. I also read *[The Marti
 
 ## The Math
 
-[This wikipedia article][3] very helpfully breaks down the math into four distinct steps:     
+[This wikipedia article][3] very helpfully breaks down the math into four distinct steps:
 
-1. Compute the **mean anomaly**: $M = nt, nP = 2\pi$        
-    $$M = \frac{2\pi t}{P}$$    
-    Where $n$ is the *mean motion*, $M$ is the *mean anomaly*, and $t$ is the time since [perihelion][4]. It's interesting to note that in the consolidated formula, we get the relationship $\frac{t}{P}$. Therefore, since $2\pi$ is constant, the term which defines $M$ is simply the ratio between time since perihelion and the orbital period. This means that **any** unit of time can be used, as long as it is used for **both parameters**.
-2. Compute the **eccentric anomaly** $E$ by solving [Kepler's equation][5]:    
-    $$M = E - \varepsilon\sin{E} $$    
-    Where $\varepsilon$ is the [eccentricity][6] of the orbit
+1. Compute the **mean anomaly**: $$M = nt, nP = 2\pi$$
 
-3. Compute the **true anomaly** $\theta$ by the equation:    
+$$M = \frac{2\pi t}{P}$$
+    
+Where $$n$$ is the *mean motion*, $$M$$ is the *mean anomaly*, and $$t$$ is the time since [perihelion][4]. It's interesting to note that in the consolidated formula, we get the relationship $$\frac{t}{P}$$. Therefore, since $$2\pi$$ is constant, the term which defines $$M$$ is simply the ratio between time since perihelion and the orbital period. This means that **any** unit of time can be used, as long as it is used for **both parameters**.
+
+2. Compute the **eccentric anomaly** $$E$$ by solving [Kepler's equation][5]:
+
+    $$M = E - \varepsilon\sin{E} $$
+
+    Where $$\varepsilon$$ is the [eccentricity][6] of the orbit
+
+3. Compute the **true anomaly** $$\theta$$ by the equation:
+
     $$(1 - \varepsilon)\tan^2{\frac{\theta}{2}} = (1 + \varepsilon)\tan^2{\frac{E}{2}}$$
 
-4. Compute the **heliocentric distance**:    
+4. Compute the **heliocentric distance**:
+
     $$r = a(1 - \varepsilon \cos{E})$$
 
-    Where $a$ is the [semi-major axis][7].
+    Where $$a$$ is the [semi-major axis][7].
 
 Next, we'll translate each step in to code.
 
@@ -32,14 +39,14 @@ Next, we'll translate each step in to code.
 ### Step One
 First, you'll need to import the `math` module, and install `matplotlib`. I recommend using a package manager to install `matplotlib`, eg `sudo apt-get install python-matplotlib`. As the first thing in your file, you should end up with:    
     
-    :::python
+    ::python
     import math
     from matplotlib import pyplot as plt    
 
 
 For step one, we need to **compute the mean anomaly**. We need time since perihelion and the orbital period, so we'll make those parameters:    
 
-    :::python
+    ::python
     def step_one(t, p):
         """
         M = mean anomaly
@@ -58,21 +65,21 @@ We've got two lines, one horizontal, one slanted with slope = 1, and the point w
  
 <img src="/static/media/uploads/kepler%27s_equation_graph.png" width=60%>
 
-We know that $$M$$, a constant value, will always be greater than $$E - \varepsilon\sin{E}$$ when $$E = 0$$. In fact, the right side of the equation is basically a slanted $$\sin{x}$$ graph. You could also think of it as a $$y = x$$ graph being sinusoidally translated up and down, where the amplitude of translation is the eccentricity of the orbit.    
+We know that $M$, a constant value, will always be greater than $E - \varepsilon\sin{E}$ when $E = 0$. In fact, the right side of the equation is basically a slanted $\sin{x}$ graph. You could also think of it as a $y = x$ graph being sinusoidally translated up and down, where the amplitude of translation is the eccentricity of the orbit.    
 
-Knowing that the right side of the equation will always start out as being less than the left, to find the intersection point we can just increase values of $$E$$ (starting with $$E = 0$$) until the right side is equal to the left. **However**: we'll be computing thousands of positions, and we want to be able to find the solution very quickly, but also with lots of precision. That's why our algorithm should be as follows:    
+Knowing that the right side of the equation will always start out as being less than the left, to find the intersection point we can just increase values of $E$ (starting with $E = 0$) until the right side is equal to the left. **However**: we'll be computing thousands of positions, and we want to be able to find the solution very quickly, but also with lots of precision. That's why our algorithm should be as follows:    
 
-**Initial Conditions:** $$E = 0$$    
+**Initial Conditions:** $E = 0$    
 
 * Is right side < left side?
-    - Yes: increment $$E$$ by 1
+    - Yes: increment $E$ by 1
     - No: Is right side > left side?
-        - Yes: decrement $$E$$ by 0.00001
+        - Yes: decrement $E$ by 0.00001
         - No: **stop**
 
 This method is fast, but can also be arbitrarily precise by adding as many decimal points to the decrement step as need. 
      
-    :::python
+    ::python
     def step_two(m, e):
         """
         M = mean anomaly
@@ -90,22 +97,22 @@ This method is fast, but can also be arbitrarily precise by adding as many decim
         return E
 
 ### Step Three
-This is, by far, the hardest step to implement. It's easy to get tripped up because it involves a $$\tan$$ equation which has **two solutions** in a given cycle. This step will require a bit of high school trigonometry.    
+This is, by far, the hardest step to implement. It's easy to get tripped up because it involves a $\tan$ equation which has **two solutions** in a given cycle. This step will require a bit of high school trigonometry.    
 
-First of all, the right side of the equation, $$(1 + \varepsilon)\tan^2{\frac{E}{2}}$$, is a number -- all of the variables are known -- so let's forget about it for now.    
+First of all, the right side of the equation, $(1 + \varepsilon)\tan^2{\frac{E}{2}}$, is a number -- all of the variables are known -- so let's forget about it for now.    
 
-Normally, $$\tan$$ has a period of $$\pi$$. When you square it, the period doesn't change, but when you divide the variable $$\theta$ by 2, $\tan^2{\frac{\theta}{2}}$$, then the period becomes $$2\pi$$:
+Normally, $\tan$ has a period of $\pi$. When you square it, the period doesn't change, but when you divide the variable $\theta$ by 2, $\tan^2{\frac{\theta}{2}}$, then the period becomes $2\pi$:
 
 <img src="/static/media/uploads/tan.png" width=60%>
 
-Now the right side of our equation, which is a number (not a variable), will be a horizontal line which intersects with the $$\tan^2{\frac{\theta}{2}}$$ **twice**, like this:
+Now the right side of our equation, which is a number (not a variable), will be a horizontal line which intersects with the $\tan^2{\frac{\theta}{2}}$ **twice**, like this:
 
 <img src="/static/media/uploads/tan_and_linear.png" width = 60%>
 
-Now the tricky part is that we need **both** of those solutions. One of the solutions is for when $$0 \le t \le \frac{P}{2}$$, and the other is for when $$t \gt \frac{P}{2}$$. In other words, without the second solution, you won't be able to calculate true anomalies for times greater than half the orbital period. My solution is this:
+Now the tricky part is that we need **both** of those solutions. One of the solutions is for when $0 \le t \le \frac{P}{2}$, and the other is for when $t \gt \frac{P}{2}$. In other words, without the second solution, you won't be able to calculate true anomalies for times greater than half the orbital period. My solution is this:
 
-    :::python
-    def step_three(e, E):
+    ::python
+        def step_three(e, E):
         """
         (1 - e)tan^2(theta/2) = (1 + e)tan^2(E/2)
         e = eccentricity
@@ -123,13 +130,12 @@ Now the tricky part is that we need **both** of those solutions. One of the solu
 
 As you can see, this step is very similar in principle to step two, with some key differences. First, I increment by 0.1 and not 1. This is because the angles are very small to begin with, and so incrementing by 0.1 many times is much faster than decrementing by 0.00001 many times. Second, this step returns a list and not a number. The list contains both solutions. In order to get the second solution, a bit of  reasoning is need.     
 
-First, the $$\tan^2{\frac{\theta}{2}}$$ graph is symmetrical in its cycle, meaning the values after $$\pi$$ can be described as a reflection of the previous values ($$0 \lt x \lt \pi$$)  over a line $$x = \pi$$. This means that the distance from the first solution $$\theta_1$$ to $$\pi$$, which is $$\pi - \theta_1$$, is equal to the distance from the second solution $$\theta_2$$ to $$\pi$$. Therefore, the distance **between** solutions is $$2(\pi - \theta_1)$$. The value of $$\theta_2$$ can then be found by the equation:      
+First, the $\tan^2{\frac{\theta}{2}}$ graph is symmetrical in its cycle, meaning the values after $\pi$ can be described as a reflection of the previous values ($0 \lt x \lt \pi$)  over a line $x = \pi$. This means that the distance from the first solution $\theta_1$ to $\pi$, which is $\pi - \theta_1$, is equal to the distance from the second solution $\theta_2$ to $\pi$. Therefore, the distance **between** solutions is $2(\pi - \theta_1)$. The value of $\theta_2$ can then be found by the equation:    
+$$\theta_2 = 2(\pi - \theta_1) + \theta_1$$
 
-$$\theta_2 = 2(\pi - \theta_1) + \theta_1$$  
+The solution to use will be determined later, since $t$ and $P$ are required.
 
-The solution to use will be determined later, since $$t$$ and $P$ are required.  
-
-Okay, we made it through the toughest part! It's all smooth sailing from here.  
+Okay, we made it through the toughest part! It's all smooth sailing from here.
 
 ### Step Four
 
@@ -147,7 +153,7 @@ This is where we calculate the heliocentric distance, or the planet's distance f
         return a * (1 - (e * math.cos(E)))    
  
 
-###Tying it all together
+### Tying it all together
 
 At this point, you have all the tools you need to predict the position of a planetary body as a function of time. However, I would recommend creating one last function that handles the order of calculations and determines which true anomaly solution to use. I just made a simple, barebones one:    
 
@@ -182,11 +188,11 @@ This gives me a pretty graph that looks like this:
 
 <img src="/static/media/uploads/figure_1.png" width=60%>
 
-##Conclusion
+## Conclusion
 
 With this code, I see many interesting avenues of research. I can plot more planets, graph their velocity, relative distances, relative angles, etc. Eventually I plan to refine this code for actual calendar dates, and use it to determine launch dates and windows.    
 
-###Improvements
+### Improvements
 
 Some possible improvements could be made on the true anomaly function. Since orbits are quite often plotted one way, and sequentially, it could be optimized for this purpose by accepting the previously calculated angle as a starting point for calculating the next, instead of starting from 0 for all angles. This would be easily done with a parameter which defaults to 0.    
 
@@ -273,7 +279,7 @@ Here's all the code, for those who are lazy:
     plt.polar(m_theta, m_r, 'r')
     plt.show()
 
-##Final Thoughts
+## Final Thoughts
 
 If you made it all the way to the end, I'm very impressed. Thanks for reading!     
 
