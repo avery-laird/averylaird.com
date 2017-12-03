@@ -1,0 +1,27 @@
+220blockquote {
+	margin-left: 0rem;
+	padding-bottom: 0rem;
+	padding-top: 0rem;
+}
+
+blockquote p {
+	font-size: 0.9rem;
+}
+
+div.footnotes > ol > li > p, div.footnotes > ol {
+	font-size: 0.8rem;
+}
+
+a > code {
+	color: #0076df;
+}
+
+#mc_embed_signup {
+	background: inherit !important;
+	font: inherit !important;
+}
+
+.highlight, .highlight .p {
+
+	font-size: 0.8rem;
+}

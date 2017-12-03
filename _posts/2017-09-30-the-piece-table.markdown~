@@ -1,7 +1,0 @@
----
-title: "Data Structure: The Piece Table"
-layout: post
-categories: programming editor
----
-
-The first step in building my text editor is to implement the core API. 
