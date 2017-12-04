@@ -3,6 +3,10 @@ _site
 .DS_Store
 .jekyll-metadata
 
+old_static
+old_static/*
+
+
 # Ignore the config file that's used for gh-pages.
 _config.gh-pages.yml
 

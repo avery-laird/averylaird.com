@@ -65,7 +65,7 @@ Since Kepler's equation is [transcendental][8], and cannot be solved algebraical
 
 We've got two lines, one horizontal, one slanted with slope = 1, and the point where they intersect is our solution. Or, you could move the $$M$$ over to get $$M - E + \varepsilon\sin{E} = 0$$ and say the root is your solution. I choose the former. It looks something like this:    
  
-<img src="/static/media/uploads/kepler%27s_equation_graph.png" width=60%>
+![Kepler's Equation]({{ "/static/elliptical/kepler_equation_graph.png" | absolute_url }}){:width="60%" style="display:block;margin:0 auto"}
 
 We know that $$M$$, a constant value, will always be greater than $$E - \varepsilon\sin{E}$$ when $$E = 0$$. In fact, the right side of the equation is basically a slanted $$\sin{x}$$ graph. You could also think of it as a $$y = x$$ graph being sinusoidally translated up and down, where the amplitude of translation is the eccentricity of the orbit.
 
@@ -107,11 +107,11 @@ First of all, the right side of the equation, $$(1 + \varepsilon)\tan^2{\frac{E}
 
 Normally, $$\tan$$ has a period of $$\pi$$. When you square it, the period doesn't change, but when you divide the variable $$\theta$$ by 2, $$\tan^2{\frac{\theta}{2}}$$, then the period becomes $$2\pi$$:
 
-<img src="/static/media/uploads/tan.png" width=60%>
+![]({{ "/static/elliptical/tan.png" | absolute_url }}){:style="display:block;margin:0 auto"}
 
 Now the right side of our equation, which is a number (not a variable), will be a horizontal line which intersects with the $$\tan^2{\frac{\theta}{2}}$$ **twice**, like this:
 
-<img src="/static/media/uploads/tan_and_linear.png" width = 60%>
+![]({{ "/static/elliptical/tan_and_linear.png" | absolute_url }}){:style="display:block;margin:0 auto"}
 
 Now the tricky part is that we need **both** of those solutions. One of the solutions is for when $$0 \le t \le \frac{P}{2}$$, and the other is for when $$t \gt \frac{P}{2}$$. In other words, without the second solution, you won't be able to calculate true anomalies for times greater than half the orbital period. My solution is this:
 
@@ -196,7 +196,7 @@ plt.show()
 
 This gives me a pretty graph that looks like this:
 
-<img src="/static/media/uploads/figure_1.png" width=60%>
+![]({{ "/static/elliptical/figure_1.png" | absolute_url }}){:style="display:block;margin:0 auto"}
 
 ## Conclusion
 
