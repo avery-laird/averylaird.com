@@ -38,7 +38,7 @@ Like most space nerds, I play [Kerbal Space Program][1]. I also read *[The Marti
 
 Next, we'll translate each step in to code.
 
-**NOTE:** You can find all the code in one place at [the end of this article](#code)
+> You can find all the code in one place at [the end of this article](#code)
 
 ### Step One
 First, you'll need to import the `math` module, and install `matplotlib`. I recommend using a package manager to install `matplotlib`, eg `sudo apt-get install python-matplotlib`. As the first thing in your file, you should end up with:    
