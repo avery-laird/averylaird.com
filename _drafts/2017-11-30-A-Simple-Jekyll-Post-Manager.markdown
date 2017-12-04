@@ -1,7 +1,7 @@
 ---
 title: "A Simple Jekyll Post Manager"
 layout: post
-published: false
+published: true
 ---
 
 A few months ago, I stopped using Django + Mezzanine to manage my site. Now, I use Jekyll instead, and it's a terrific experience. Everything's simple, fast, and easy. I love it. That being said, I'm not happy with one thing in particular. Managing posts is a pain, and it becomes more difficult as the number of posts increase. And I think I know why: the posts are sorted by date. For humans -- or for me, anyway -- it's easier to remember posts by name. When we are trying to find a post, we hardly ever think "that post I wrote on November 22nd, 2017." We think, "that post called "How To Solve It.""
