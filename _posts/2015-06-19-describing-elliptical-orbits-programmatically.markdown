@@ -3,6 +3,7 @@ date: 2015-06-19 19:37:03+00:00
 layout: post
 categories: 
 title: Describing Elliptical Orbits Programmatically 
+summary: "I decided to see if I could use math, and Python, to describe the orbits of Earth and Mars."
 ---
 
 > This is a migrated post from my old website. If you see any odd formatting or other inconsistencies, please [let me know](mailto:laird.avery@gmail.com).
