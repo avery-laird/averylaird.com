@@ -4,6 +4,9 @@ layout: post
 categories: 
 title: Describing Elliptical Orbits Programmatically 
 ---
+
+> This is a migrated post from my old website. If you see any odd formatting or other inconsistencies, please [let me know](mailto:laird.avery@gmail.com).
+
 Like most space nerds, I play [Kerbal Space Program][1]. I also read *[The Martian][2]* a couple months ago; it was a terrific book, and I highly recommend it. One of my favourite aspects of the book, which is also its claim to fame, is its very impressive intention to be as scientifically accurate as possible. I've always been interested in how KSP simulates orbits, but *The Martian* also got me thinking about how actual orbital maneuvers are planned, and the math involved. That's why I decided to see if I could use math, and Python, to describe the orbits of Earth and Mars. 
 
 ## The Math
