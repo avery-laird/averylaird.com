@@ -1,11 +1,16 @@
-blockquote {
+.aside {
 	margin-left: 0rem;
 	padding-bottom: 0rem;
 	padding-top: 0rem;
+	border-left-color: rgb(225, 111, 0);
 }
 
-blockquote p {
+.aside-sm > p {
 	font-size: 0.9rem;
+}
+
+.aside-med > p {
+    font-size: 1.1rem;
 }
 
 div.footnotes > ol > li > p, div.footnotes > ol {
@@ -25,3 +30,28 @@ a > code {
 
 	font-size: 0.8rem;
 }
+
+.sc {
+    font-style: normal; /* disable italics */
+    font-variant: small-caps;
+    font-variant-numeric: oldstyle-nums; /* small caps look
+                        best together with oldstyle numbers */
+}
+
+/* Tables */
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-width: 2px, 1px, 1px, 1px;
+    border-color: #000000;
+    border-style: solid;
+}
+
+th{
+    border:2px solid #000000;
+}
+
+td{
+    border:1px solid #000000;
+}
+
