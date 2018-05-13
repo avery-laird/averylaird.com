@@ -4,7 +4,7 @@ title: "Piece Tables, Splay Trees, and \"Trables\" (Oh My!)"
 categories: programming piece-table
 ---
 
-This was a lot harder that I thought it would be (and if you're not sure what "it" is, check out my [last post](http://www.averylaird.com/programming/the%20text%20editor/2017/09/30/the-piece-table/)). First, I tried using a red-black tree to store the pieces, similar to the [method proposed](http://e98cuenc.free.fr/wordprocessor/piecetable.html) by Joaquin Cuenca Abela. He has already written a very impressive C++ implementation. The about red-black trees is that they have a lot of cases to deal with, and (in most situations) perform only slightly better than some alternatives. And, as it was once wisely said:
+This was a lot harder that I thought it would be (and if you're not sure what "it" is, check out my [last post](http://www.averylaird.com/programming/the%20text%20editor/2017/09/30/the-piece-table/)). First, I tried using a red-black tree to store the pieces, similar to the [method proposed](http://e98cuenc.free.fr/wordprocessor/piecetable.html) by Joaquin Cuenca Abela. He has already written a very impressive C++ implementation. The caveat with red-black trees is that they have a lot of cases to deal with, and (in most situations) perform only slightly better than some alternatives. And, as it was once wisely said:
 
 <blockquote>
   <p>
