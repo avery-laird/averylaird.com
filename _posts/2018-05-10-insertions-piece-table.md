@@ -195,7 +195,7 @@ struct Tree {
 };
 {% endhighlight %}
 
-In terms of types, that's about it. I won't post a bunch of code here, as I will be putting it up on github. However, I will talk about the functions involved in insertions, and how I handle that process.
+In terms of types, that's about it. I won't post a bunch of code here, it's all availible [on github](https://github.com/avery-laird/pico). However, I will talk about the functions involved in insertions, and how I handle that process.
 
 First, we follow the typical BST insertion algorithm. However, before performing the insertion, we perform a split test. If a split must be performed, we do it, otherwise, just insert the node normally. We record the address of the newly inserted node, and pass it to the splay function.
 
@@ -217,7 +217,7 @@ Inserting characters randomly doesn't give a fair representation of the common u
 
 This suggests that, no matter the table size, it should always take about the same time to perform an insertion, and that is a result I'm happy with. As some simple, preliminary tests, there is not much that can be inferred --- perhaps a comparison between other implementations (array, linked list, etc) would be interesting. My inner skeptic also feels that running times this quick do seem *a bit* too good to be true, and there's always the possibility of a bug that I haven't noticed. I plan to design some better tests to rule out this possibility.
 
-I'm still working on cleaning up the code and putting it up on GitHub --- there are a lot of improvements that can be made, I'm looking forward to any and all suggestions ([follow me on GitHub](https://github.com/avery-laird) to see when the code goes up). My next rough steps are supporting deletions, undo, and then working on an API. After that, multiple cursors, users --- and beyond!
+You can check out all the code [on github](https://github.com/avery-laird/pico). My next rough steps are supporting deletions, undo, and then working on an API. After that, multiple cursors, users --- and beyond!
 
 
 [^1]: I'm using Joaqin's estimate here
