@@ -195,7 +195,7 @@ struct Tree {
 };
 {% endhighlight %}
 
-In terms of types, that's about it. I won't post a bunch of code here, it's all availible [on github](https://github.com/avery-laird/pico). However, I will talk about the functions involved in insertions, and how I handle that process.
+In terms of types, that's about it. I won't post a bunch of code here, it's all available [on github](https://github.com/avery-laird/pico). However, I will talk about the functions involved in insertions, and how I handle that process.
 
 First, we follow the typical BST insertion algorithm. However, before performing the insertion, we perform a split test. If a split must be performed, we do it, otherwise, just insert the node normally. We record the address of the newly inserted node, and pass it to the splay function.
 
