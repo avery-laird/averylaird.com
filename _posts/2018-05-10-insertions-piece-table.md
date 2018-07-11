@@ -219,5 +219,8 @@ This suggests that, no matter the table size, it should always take about the sa
 
 You can check out all the code [on github](https://github.com/avery-laird/pico). My next rough steps are supporting deletions, undo, and then working on an API. After that, multiple cursors, users --- and beyond!
 
+> This article is also [available in Russian](http://getcolorings.com/ru-piece-table) thanks to [Stanislav](http://getcolorings.com/) 
+{: .aside .aside-sm}
+
 
 [^1]: I'm using Joaqin's estimate here
